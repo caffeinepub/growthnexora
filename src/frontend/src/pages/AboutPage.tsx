@@ -26,6 +26,7 @@ const values = [
 export default function AboutPage() {
   return (
     <div style={{ backgroundColor: "#0B0B0B" }}>
+      {/* Hero — no reveal */}
       <section className="pt-32 pb-20" style={{ backgroundColor: "#121212" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[#3B82F6] text-xs font-poppins font-semibold uppercase tracking-widest mb-4 block">
@@ -41,7 +42,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-24" style={{ backgroundColor: "#0B0B0B" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#0B0B0B" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -108,7 +109,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-24" style={{ backgroundColor: "#121212" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#121212" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[#3B82F6] text-xs font-poppins font-semibold uppercase tracking-widest mb-4 block">
@@ -118,7 +119,7 @@ export default function AboutPage() {
               What Drives Us
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
             {values.map((v) => (
               <div
                 key={v.title}
@@ -143,7 +144,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="py-20"
+        className="py-20 reveal"
         style={{
           background: "linear-gradient(135deg, #0F1929 0%, #0B0B0B 100%)",
         }}

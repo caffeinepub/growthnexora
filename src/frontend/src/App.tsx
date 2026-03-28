@@ -5,7 +5,9 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
+  useLocation,
 } from "@tanstack/react-router";
+import { useEffect } from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import { InternetIdentityProvider } from "./hooks/useInternetIdentity";
@@ -19,7 +21,65 @@ import ServicesPage from "./pages/ServicesPage";
 
 const queryClient = new QueryClient();
 
+function PageTransition() {
+  const location = useLocation();
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: pathname change is the intended trigger
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location.pathname]);
+
+  return (
+    <div key={location.pathname} className="page-enter">
+      <Outlet />
+    </div>
+  );
+}
+
 function RootLayout() {
+  const location = useLocation();
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: pathname change is the intended trigger
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => {
+      const sections = document.querySelectorAll<HTMLElement>("main .reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+      );
+      for (const el of sections) {
+        observer.observe(el);
+      }
+
+      // Stagger children inside .stagger-children grids
+      const cards = document.querySelectorAll<HTMLElement>(
+        "main .stagger-children > *",
+      );
+      let i = 0;
+      for (const card of cards) {
+        card.style.transitionDelay = `${i * 80}ms`;
+        card.classList.add("reveal");
+        i++;
+      }
+
+      // Re-observe newly-classed stagger cards
+      const newReveals = document.querySelectorAll<HTMLElement>("main .reveal");
+      for (const el of newReveals) {
+        observer.observe(el);
+      }
+
+      return () => observer.disconnect();
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [location.pathname]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <InternetIdentityProvider>
@@ -29,7 +89,7 @@ function RootLayout() {
         >
           <Navbar />
           <main className="flex-1">
-            <Outlet />
+            <PageTransition />
           </main>
           <Footer />
         </div>

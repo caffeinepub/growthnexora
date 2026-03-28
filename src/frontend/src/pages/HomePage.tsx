@@ -111,7 +111,7 @@ const projects = [
 export default function HomePage() {
   return (
     <div style={{ backgroundColor: "#0B0B0B" }}>
-      {/* Hero */}
+      {/* Hero — no reveal (above the fold, page-enter handles it) */}
       <section
         className="relative min-h-screen flex items-center pt-20"
         style={{ backgroundColor: "#0B0B0B" }}
@@ -177,7 +177,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24" style={{ backgroundColor: "#121212" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#121212" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-[#3B82F6] text-xs font-poppins font-semibold uppercase tracking-widest mb-4 block">
@@ -191,7 +191,7 @@ export default function HomePage() {
               engines designed for clarity, speed, and conversion.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
             {features.map((f) => (
               <div
                 key={f.title}
@@ -217,7 +217,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Preview */}
-      <section className="py-24" style={{ backgroundColor: "#0B0B0B" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#0B0B0B" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
@@ -240,7 +240,7 @@ export default function HomePage() {
               View All Services &#8594;
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
             {services.map((s, idx) => (
               <div
                 key={s.title}
@@ -264,7 +264,7 @@ export default function HomePage() {
       </section>
 
       {/* Recent Projects */}
-      <section className="py-24" style={{ backgroundColor: "#121212" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#121212" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
             <div>
@@ -287,7 +287,7 @@ export default function HomePage() {
               View Full Portfolio &#8594;
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 stagger-children">
             {projects.map((p, idx) => (
               <div
                 key={p.title}
@@ -320,7 +320,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24" style={{ backgroundColor: "#0B0B0B" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#0B0B0B" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="text-[#3B82F6] text-xs font-poppins font-semibold uppercase tracking-widest mb-4 block">
@@ -330,7 +330,7 @@ export default function HomePage() {
               What Our Clients Say
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
             {[
               {
                 category: "Website Development",
@@ -391,7 +391,7 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Teaser */}
-      <section className="py-24" style={{ backgroundColor: "#121212" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#121212" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -459,7 +459,7 @@ export default function HomePage() {
 
       {/* CTA Banner */}
       <section
-        className="py-24"
+        className="py-24 reveal"
         style={{
           background:
             "linear-gradient(135deg, #0F1929 0%, #0B0B0B 50%, #0F1929 100%)",
@@ -486,7 +486,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24" style={{ backgroundColor: "#0B0B0B" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#0B0B0B" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-[#3B82F6] text-xs font-poppins font-semibold uppercase tracking-widest mb-4 block">
@@ -496,7 +496,7 @@ export default function HomePage() {
               Get In Touch
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto stagger-children">
             <a
               href={whatsappUrl}
               target="_blank"

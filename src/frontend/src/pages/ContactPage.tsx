@@ -5,7 +5,7 @@ const whatsappUrl = "https://wa.me/923154556761";
 export default function ContactPage() {
   return (
     <div style={{ backgroundColor: "#0B0B0B" }}>
-      {/* Hero */}
+      {/* Hero — no reveal */}
       <section className="pt-32 pb-20" style={{ backgroundColor: "#121212" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[#3B82F6] text-xs font-poppins font-semibold uppercase tracking-widest mb-4 block">
@@ -22,9 +22,9 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Cards */}
-      <section className="py-24" style={{ backgroundColor: "#0B0B0B" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#0B0B0B" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16 stagger-children">
             <a
               href={whatsappUrl}
               target="_blank"
@@ -86,7 +86,7 @@ export default function ContactPage() {
 
           {/* WhatsApp CTA */}
           <div
-            className="rounded-2xl border border-[#1F1F1F] p-10 text-center"
+            className="rounded-2xl border border-[#1F1F1F] p-10 text-center reveal"
             style={{ backgroundColor: "#121212" }}
           >
             <h2 className="font-poppins font-bold text-white text-2xl sm:text-3xl mb-4">

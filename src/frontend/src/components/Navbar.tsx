@@ -54,8 +54,8 @@ export default function Navbar() {
                 data-ocid="nav.link"
                 className={`text-sm font-inter transition-colors duration-200 ${
                   pathname === link.href
-                    ? "text-white font-medium"
-                    : "text-[#B0B0B0] hover:text-white"
+                    ? "text-white font-medium nav-active-line"
+                    : "text-[#B0B0B0] hover:text-white nav-inactive-line"
                 }`}
               >
                 {link.label}

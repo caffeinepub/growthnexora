@@ -15,6 +15,7 @@ const included = [
 export default function PricingPage() {
   return (
     <div style={{ backgroundColor: "#0B0B0B" }}>
+      {/* Hero — no reveal */}
       <section className="pt-32 pb-20" style={{ backgroundColor: "#121212" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[#3B82F6] text-xs font-poppins font-semibold uppercase tracking-widest mb-4 block">
@@ -30,7 +31,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <section className="py-24" style={{ backgroundColor: "#0B0B0B" }}>
+      <section className="py-24 reveal" style={{ backgroundColor: "#0B0B0B" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="rounded-2xl border border-[#1F1F1F] p-10 text-center mb-12"
@@ -86,7 +87,7 @@ export default function PricingPage() {
       </section>
 
       <section
-        className="py-20"
+        className="py-20 reveal"
         style={{
           background: "linear-gradient(135deg, #0F1929 0%, #0B0B0B 100%)",
         }}

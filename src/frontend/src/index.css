@@ -79,3 +79,83 @@
     border-color: #1f1f1f;
   }
 }
+
+/* ─── Page transition ─────────────────────────────────────────── */
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: fadeInPage 0.35s ease forwards;
+}
+
+/* ─── Scroll reveal ───────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Active nav underline ────────────────────────────────────── */
+.nav-active-line {
+  position: relative;
+}
+
+.nav-active-line::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #3b82f6;
+  border-radius: 2px;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.nav-inactive-line {
+  position: relative;
+}
+
+.nav-inactive-line::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #3b82f6;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-inactive-line:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─── Button press feedback ───────────────────────────────────── */
+.btn-press:active {
+  transform: scale(0.96);
+}
+
+a[href^="https://wa.me"]:active,
+button[type="submit"]:active {
+  transform: scale(0.96);
+  transition: transform 0.1s ease;
+}
